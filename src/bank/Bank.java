@@ -14,11 +14,10 @@ public class Bank {
         accounts.add(account);
     }
 
-    // BU METODU EKLE:
     public double getTotalBankBalance() {
         double total = 0;
         for (Account acc : accounts) {
-            total += acc.getBalance(); // Account sınıfındaki getBalance() metodunu kullanır
+            total += acc.getBalance(); 
         }
         return total;
     }
