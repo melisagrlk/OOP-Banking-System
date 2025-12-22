@@ -25,7 +25,11 @@ public abstract class Account implements Transferable {
             );
         }
         balance += amount;
-        transactions.add(new Transaction("Deposit", amount));
+        //transactions.add(new Transaction("Deposit", amount));
+    }
+    
+    public String getAccountNumber() {
+        return accountNumber;
     }
 
     public double getBalance() {
@@ -55,7 +59,7 @@ public abstract class Account implements Transferable {
 
         if (this.withdraw(amount)) {
             toAccount.deposit(amount);
-            transactions.add(new Transaction("Transfer", amount));
+           // transactions.add(new Transaction("Transfer", amount));
             return true;
         }
 
