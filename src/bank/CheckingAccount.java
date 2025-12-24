@@ -1,7 +1,7 @@
 package bank;
 
 public class CheckingAccount extends Account {
-    private double overdraftLimit;
+    private double overdraftLimit; //ex: 500.0
 
     public CheckingAccount(String accountNumber, double balance, double overdraftLimit) {
         super(accountNumber, balance);
@@ -12,7 +12,7 @@ public class CheckingAccount extends Account {
     public boolean withdraw(double amount) {
         if (amount > 0 && (getBalance() + overdraftLimit) >= amount) {
             setBalance(getBalance() - amount);
-            transactions.add(new Transaction("Withdrawal (Overdraft)", amount));
+            addTransaction("Withdrawal (Overdraft)", amount);
             return true;
         }
         System.out.println("Overdraft limit exceeded!");

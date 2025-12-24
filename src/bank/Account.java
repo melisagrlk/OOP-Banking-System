@@ -39,6 +39,10 @@ public abstract class Account implements Transferable {
     protected void setBalance(double balance) {
         this.balance = balance;
     }
+    
+    protected void addTransaction(String type, double amount) {
+        this.transactions.add(new Transaction(type, amount));
+    }
 
     public abstract boolean withdraw(double amount);
 
