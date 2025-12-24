@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public abstract class Account implements Transferable {
 
-    protected String accountNumber;
+    private String accountNumber;
     private double balance;
-    protected ArrayList<Transaction> transactions = new ArrayList<>();
+    private ArrayList<Transaction> transactions = new ArrayList<>();
 
     public Account(String accountNumber, double balance) {
         if (balance < 0) {
