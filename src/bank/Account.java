@@ -69,4 +69,10 @@ public abstract class Account implements Transferable {
 
         return false;
     }
+    
+    public void printMonthlyReport() {
+        System.out.println("--- Monthly Report for Account: " + getAccountNumber() + " ---");
+        System.out.println("Current Balance: " + getBalance());
+        System.out.println("Total Transactions: " + transactions.size());
+    }
 }
