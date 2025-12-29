@@ -39,5 +39,10 @@ public class AccountTest {
         assertEquals(1300.0, checking.getBalance(), "Deposit should update balance correctly.");
     }
     
-    
+    @Test
+    void testInterestAndReport() {
+        savings.applyInterest(); // Faiz uygula
+        assertTrue(savings.getBalance() > 1000.0, "Balance should increase after interest.");
+        savings.printMonthlyReport(); // Raporu konsola yazdır
+    }
 }
