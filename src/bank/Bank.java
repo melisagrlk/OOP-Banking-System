@@ -28,4 +28,11 @@ public class Bank {
             System.out.println("ID: " + acc.getAccountNumber() + " | Balance: " + acc.getBalance());
         }
     }
+    
+    public void applyLoan(Account account, double loanAmount) {
+        // Simulating a simple loan by depositing the amount to the account
+        account.deposit(loanAmount);
+        System.out.println("Loan of " + loanAmount + " approved for " + account.getAccountNumber());
+    }
+    
 }
