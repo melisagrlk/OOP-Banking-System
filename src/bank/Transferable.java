@@ -1,13 +1,10 @@
 package bank;
 
+//Interface: This is like a rule book. 
+//Any class that "implements" this MUST have a transfer feature.
 public interface Transferable {
 	
-	/**
-     * Performs a balance transfer from this account to a target account.
-     * @param toAccount The destination account for the transfer.
-     * @param amount The amount of money to be transferred.
-     */
-	
 	boolean transfer(Account toAccount, double amount);
-
+	// This method says: "I don't know HOW you will transfer money yet, 
+    // but you MUST have a method named 'transfer' that takes a target account and an amount."
 }
