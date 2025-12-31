@@ -21,7 +21,7 @@ public abstract class Account implements Transferable {
         this.balance = balance;
     }
 
-    // Method to add money to the balance.
+    // Method to add money to the balance
     public void deposit(double amount) {
         if (amount <= 0) {
             throw new IllegalArgumentException(
@@ -29,7 +29,7 @@ public abstract class Account implements Transferable {
             );
         }
         balance += amount;
-        // Record this movement in the transaction history
+        // Record this movement in the transaction history.
         transactions.add(new Transaction("Deposit", amount));
     }
     
