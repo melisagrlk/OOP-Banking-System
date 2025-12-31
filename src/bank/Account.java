@@ -21,7 +21,7 @@ public abstract class Account implements Transferable {
         this.balance = balance;
     }
 
-    // Method to add money to the balance
+    // Method to add money to the balance.
     public void deposit(double amount) {
         if (amount <= 0) {
             throw new IllegalArgumentException(
