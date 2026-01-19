@@ -42,4 +42,17 @@ public class Bank {
         System.out.println("Loan of " + loanAmount + " approved for " + account.getAccountNumber());
     }
     
+    public List<Account> getAccounts() {
+        return this.accounts; 
+    }
+    
+ 
+    public Account findAccount(String accountNumber) {
+        for (Account acc : accounts) {
+            if (acc.getAccountNumber().equals(accountNumber)) {
+                return acc;
+            }
+        }
+        return null; 
+    }
 }

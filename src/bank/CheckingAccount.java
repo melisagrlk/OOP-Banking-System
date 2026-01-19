@@ -24,4 +24,8 @@ public class CheckingAccount extends Account {
         System.out.println("Overdraft limit exceeded!");
         return false;
     }
+
+	public double getOverdraftLimit() {
+		return 0;
+	}
 }

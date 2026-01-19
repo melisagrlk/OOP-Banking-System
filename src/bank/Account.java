@@ -85,4 +85,17 @@ public abstract class Account implements Transferable {
         System.out.println("Current Balance: " + getBalance());
         System.out.println("Total Transactions: " + transactions.size());
     }
+    
+ // Method to display the transaction history on the console
+    public void displayTransactionHistory() {
+        System.out.println("\n--- Transaction History for Account: " + accountNumber + " ---");
+        if (transactions.isEmpty()) {
+            System.out.println("No transactions found for this account.");
+        } else {
+            for (Transaction t : transactions) {
+                // This prints each transaction object using its toString() method
+                System.out.println(t.toString()); 
+            }
+        }
+    }
 }

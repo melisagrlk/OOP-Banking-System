@@ -12,7 +12,7 @@ public class AccountTest {
     @BeforeEach
     void setUp() {
         checking = new CheckingAccount("CH-101", 1000.0, 500.0);
-        savings = new SavingsAccount("SA-202", 1000.0, 0.05);
+        savings = new SavingsAccount("SA-202", 1000.0 , 0.05, 200.0);
     }
 
     @Test
@@ -38,10 +38,8 @@ public class AccountTest {
     }
     
     @Test
-    void testInterestAndReport() {
-    	// Test 4: Check if interest is calculated and added to the savings account
-        savings.applyInterest(); // Apply interest logic
-        assertTrue(savings.getBalance() > 1000.0, "Balance should increase after interest.");
-        savings.printMonthlyReport(); // Print summary to console
+    void testSavingsMinimumBalance() {
+        assertFalse(savings.withdraw(900.0), "Should not allow withdrawal below minimum balance.");
+        assertEquals(1000.0, savings.getBalance(), "Balance should remain unchanged after failed withdrawal.");
     }
 }
