@@ -18,7 +18,7 @@ public class Main {
                 System.out.println("2. Create Checking Account ");
                 System.out.println("3. Deposit Money");
                 System.out.println("4. Withdraw Money");
-                System.out.println("5. Show All Accounts & Save to CSV");
+                System.out.println("5. Show All Accounts");
                 System.out.println("6. Transfer Money");
                 System.out.println("7. View Transaction History");
                 System.out.println("8. Exit");
@@ -56,7 +56,6 @@ public class Main {
                     case 5:
                         System.out.println("\n--- CURRENT ACCOUNT STATUS ---");
                         myBank.displayAllAccounts();
-                        FileHandler.saveAccounts(myBank.getAccounts());
                         break;    
                     case 6:
                         System.out.print("Enter Source Account ID: ");
@@ -71,6 +70,8 @@ public class Main {
 
                         if (sourceAcc != null && targetAcc != null) {
                             if (sourceAcc.transfer(targetAcc, transferAmount)) {
+                            	
+                            	FileHandler.saveAccounts(myBank.getAccounts());
                                 System.out.println("✅ Transfer successful!");
                             } else {
                                 System.out.println("❌ Transfer failed! Check balance or limits.");
@@ -103,6 +104,8 @@ public class Main {
             } catch (InputMismatchException e) {
                 System.out.println("❌ Input Error: Please enter numbers only, not letters!");
                 scanner.next(); 
+            }catch (IllegalArgumentException e) {
+            	System.out.println("\n Warning: "+e.getMessage());
             }
         }
         scanner.close();
@@ -134,6 +137,9 @@ public class Main {
             } else {
                 foundAcc.withdraw(amount); 
             }
+            
+            FileHandler.saveAccounts(bank.getAccounts());
+            
         } else {
             System.out.println("❌ Account not found!");
         }

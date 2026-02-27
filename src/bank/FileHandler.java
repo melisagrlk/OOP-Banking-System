@@ -17,7 +17,6 @@ public class FileHandler {
                 
                 writer.printf("%s,%s,%.2f,%.2f%n", type, acc.getAccountNumber(), acc.getBalance(), specialField);
             }
-            System.out.println("✅ Data successfully backed up to '" + FILE_NAME + "'.");
         } catch (IOException e) {
             System.err.println("❌ CSV Export Error: " + e.getMessage());
         }

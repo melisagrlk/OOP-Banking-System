@@ -14,8 +14,18 @@ public class Bank {
     }
 
     // Method to add a new account to the bank's system
-    public void addAccount(Account account) {
-        accounts.add(account);
+    public void addAccount(Account newAccount) {
+    	//Check if this ID exists among the existing accounts.
+        for (Account acc : accounts) {
+        	if(acc.getAccountNumber().equals(newAccount.getAccountNumber())) {
+        		throw new IllegalArgumentException("Account with ID "+newAccount.getAccountNumber()+" already exist!");
+        		
+        	}
+        }
+        accounts.add(newAccount);
+        
+        //Automatically saving to csv
+        FileHandler.saveAccounts(this.accounts);
     }
 
     // Calculates the sum of money in all accounts in the bank

@@ -9,6 +9,9 @@ public class SavingsAccount extends Account {
 	public SavingsAccount(String accountNumber, double balance, double interestRate, double MIN_BALANCE) {
 		// Send basic info to the parent Account class
 		super(accountNumber, balance);
+		if(MIN_BALANCE < 0) {
+			throw new IllegalArgumentException("Minimum balance limit cannot be negative!");
+		}
 		this.MIN_BALANCE=MIN_BALANCE;
 		this.interestRate=interestRate;
 	}
